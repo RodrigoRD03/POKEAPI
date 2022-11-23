@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600&display=swap');
+
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+body{
+    justify-content: center;
+    background-color: rgb(101, 101, 101);
+    font-family: 'Work Sans', sans-serif;
+}
+
+.container-Card{
+    display: flex;
+    width: 600px;
+    height: 300px;
+    margin: 10% auto;
+}
+
+.random-color{
+    z-index: 0;
+    width: 30%;
+    height: 300px;
+    background-color: white;
+    position: relative;
+    border-bottom-left-radius: 27px;
+    border-top-left-radius: 27px;
+}
+
+
+.card-image{
+    width: 150px;
+    height: 150px;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    position: absolute;
+    top: 25%;
+    left: 55%;
+    background-color: azure;
+}
+
+.pokemon-name{
+    text-transform: capitalize;
+}
+
+.name-pokemon{
+    color: azure;
+}
+
+.Cards-PokeInitials{
+    display: flex;
+}
+
+.poke-card{
+    width: 250px;
+    height: auto;
+    background: black;
+    margin: 20px;
+    list-style: none;
+    border-radius: 27px;
+} 
+
+.image-Container{
+    /* background: linear-gradient(45deg, hsla(270, 77%, 71%, 1) 0%, hsla(252, 40%, 29%, 1) 100%); */
+    height: 150px;
+    width: 250px;
+    border-radius: 27px;
+    display: grid;
+    z-index: 0;
+}
+
+.poke-image{
+    width: 120px;
+    height: 120px;
+    align-self: center;
+    margin: auto;
+    z-index: 2;
+
+}
+
+.poke-info{
+    border: 1px solid red;
+    margin: 10px;
+}
+
+.poke-name{
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.poke-Type{ 
+    display: flex;
+    text-transform: capitalize;
+}
+
+.background-type{
+    border-radius: 10px;
+    width: 70px;
+    height: 20px;
+    text-align: center;
+    margin: 5px;
+}
+
+
+.ability{
+    text-transform: capitalize;
+}
+
+.poke-state{
+    text-transform: capitalize;
+}
+
+.progress{
+    height: 10px;
+    width: 80px;
+    border-radius: 5px;
+    background-color: #e6f3fa;
+}
+
+.progress-hp{
+    height: 10px;
+    width: 100%;
+    border-radius: 5px;
+    background-color: #e6f3fa;
+}
+
+.progress::-webkit-progress-value{
+    border-radius: 27px;
+    background-color: #ebc931;
+}
+
+.progress::-webkit-progress-bar{
+    background-color: rgb(219, 219, 219);
+    border-radius: 27px;
+}
+.progress-hp::-webkit-progress-value{
+    border-radius: 27px;
+    background-color: #31eb31;
+}
+
+.progress-hp::-webkit-progress-bar{
+    background-color: rgb(219, 219, 219);
+    border-radius: 27px;
+}
