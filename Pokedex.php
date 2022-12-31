@@ -5,14 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Styles.css">
-    <title>Document</title>
+    <link rel="icon" href="./images/logo.ico">
+    <title>Pokedex</title>
 </head>
 <body>
     <?php
-        // $nombre = $_POST['opciones'];
-        // echo $nombre."<br>";
+        $nombre = $_POST['opciones'];
+        echo $nombre."<br>";
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "https://pokeapi.co/api/v2/pokemon/mewtwo");
+        curl_setopt($ch, CURLOPT_URL, "https://pokeapi.co/api/v2/pokemon/ditt");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         $data = curl_exec($ch);

@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./Styles.css">
     <link rel="icon" href="./images/logo.ico">
     <title>Document</title>
 </head>
-<body>
     <?php
         function backgrounds($types){
             $type = $types[0]->type->name;
@@ -53,15 +52,33 @@
             }
         }
         function stats($stats){
+            $cont = 0;
+            echo "<div class='poke-States'>";
+            echo "<h3 class='states'>Stats</h3>";
             foreach ($stats as $stat) {
+                $cont ++;
+                echo "<div class='accommodate-stats'>";
                 echo "<p class='poke-state'>".$stat->stat->name."</p>";
-                echo "<progress class='progress' max='200' value='$stat->base_stat'></progress>";
+                if($stat->stat->name == "hp"){
+                    echo "<progress class='progress progress-hp' max='100' value='$stat->base_stat'></progress>";
+                    echo "</div>";
+                } else {
+                    echo "<progress class='progress' max='200' value='$stat->base_stat'></progress>";
+                    echo "</div>";
+                }
             }
+            echo "</div>";
         }
     ?>
-<section class="Cards-PokeInitials">
+<body class="grid-Container">
+    <nav class="navbar-Conteiner">
+        <div class="background">
+            <a href="./index.php"><h3 class="tittle-Background">Pokemon</h3></a>
+        </div>
+    </nav>
+    <section class="Cards-PokeInitials">
         <?php
-            $pokemon = ["bulbasaur", "charmander", "squirtle", "pikachu"];
+            $pokemon = ["bulbasaur", "charmander", "squirtle"];
             foreach($pokemon as $pokemones){
                 $ch = curl_init();
                 $ch = curl_init();
@@ -76,23 +93,33 @@
                     $imagen = $character->sprites->other->$dato->front_default;
                 }
                 $types = $character->types;
-                echo "<div class='poke-card'>";
-                backgrounds($types);
-                echo "<img class='poke-image' src='$imagen' alt=''>";
-                echo "</div>";
-                echo "<div class='poke-info'>";
-                echo "<h1 class='poke-name'>".$character->name."</h1>";
-                echo "<h3>Types</h3>";
-                echo "<div class='poke-Type'>";
-                prints($types);
-                echo "</div>";
-                echo "<h3>Abilities</h3>";
                 $abilities = $character->abilities;
-                abilities($abilities);
                 $stats = $character->stats;
-                echo "<h3>Stats</h3>";
-                stats($stats);
-                echo "</div>";
+                echo "<div class='poke-card'>";
+                    backgrounds($types);
+                        echo "<img class='poke-image' src='$imagen' alt=''>";
+                    echo "</div>";
+                    echo "<div class='poke-info'>";
+                        $name = $character->name;
+                        echo "<div class='poke-name'>
+                            <h1 class='poke-Name'>".$name."</h1>
+                            </div>
+                            <div class='poke-Type'>
+                                <h3 class='types-tittle'>Types</h3>";
+                                prints($types);
+                            echo "</div>
+                            <div class='poke-Abilities'>
+                                <h3 class='abilities'>Abilities</h3>";
+                                abilities($abilities);
+                            echo "</div>";
+                            stats($stats);
+                            echo "<div class='form-conteiner'>
+                                <form action='./Pokedex.php' method='post'>
+                                    <input type='text' name='opciones' style='display: none' value='{$name}'>
+                                <button class='moreInfo-Button' type='submit'><h3>more</h3></button>
+                                </form>
+                            </div>";
+                    echo "</div>";
                 echo "</div>";
             }
         ?>
