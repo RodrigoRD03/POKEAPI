@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./Style.css">
+    <link rel="stylesheet" href="./Styles.css">
     <link rel="icon" href="./images/logo.ico">
     <script src="https://kit.fontawesome.com/4b5992b75f.js" crossorigin="anonymous"></script>
     <title>Home</title>
@@ -166,8 +166,8 @@ use function PHPSTORM_META\type;
             for($i = 0; $i < 18; $i++){ 
                 echo "<hr>
                 <form action='./Types.php' mothod='post'>
-                <input type='text' class='hidenInput' name='types' value={$TypeC[$i]}'> 
-                <button class='aside-Content-button' type='submit' ><h4>{$TypeC[$i]}</h4></button>
+                    <input type='text' class='hidenInput' name='types' value={$TypeC[$i]}'> 
+                    <button class='aside-Content-button' type='submit' ><h4>{$TypeC[$i]}</h4></button>
                 </form>
                 ";
             }
