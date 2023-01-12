@@ -71,6 +71,7 @@
         } else {
             $name = $_POST['findPokemon'];
             $name = strtolower($name);
+            $name = trim($name);
         }
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, "https://pokeapi.co/api/v2/pokemon/".$name);
@@ -99,16 +100,12 @@
             }
             $type = $pokemon->types;
             $names = $pokemon->forms;
-            
-            foreach($type as $types){
-                echo "<p>".$types->type->name."</p>";
-            }
-            echo "<section class='container-Card' styles='margin-top: 100px; color=white;'>";
+            echo "<section class='pokedex-container-Card' styles='margin-top: 100px; color=white;'>";
                     backgrounds($type);
                         echo "<img class='pokedex-PokeImage' src='$imagen' alt=''>
                     </div>
-                    <div class='random-color-2'>";
-                        echo "<h1 class='pokemon-name'>$pokemon->name</h1>";
+                    <div class='pokedex-PokeInfo'>";
+                        echo "<h1 class='pokedex-pokemon-name'>$pokemon->name</h1>";
                         echo "<h3>Tipo</h3>";
                         $type = $pokemon->types;
                         foreach($type as $types){

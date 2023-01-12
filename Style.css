@@ -64,21 +64,21 @@ body{
 }
 
 .input-Pokemon{
-   height: 40px; 
-   width: 150px;
-   border: none;
-   outline: none;
-   border-top-left-radius: 20px;
-   border-bottom-left-radius: 20px;
-   padding: 5px;
-   padding-left: 10px;
-   cursor: text;
-   font-family: 'Work Sans', sans-serif;
-   background-color: var(--card-color);
-   border: 1px solid var(--card-difuminate-color);
-   color: hsl(0, 0%, 100%);
-   text-transform: capitalize;
-   transition: .3s;
+    height: 40px; 
+    width: 150px;
+    border: none;
+    outline: none;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding: 5px;
+    padding-left: 10px;
+    cursor: text;
+    font-family: 'Work Sans', sans-serif;
+    background-color: var(--card-color);
+    border: 1px solid var(--card-difuminate-color);
+    color: hsl(0, 0%, 100%);
+    text-transform: capitalize;
+    transition: .3s;
 }
 
 .input-Pokemon::placeholder{
@@ -500,7 +500,7 @@ nav li:hover{
     margin-top: 10px;
     margin-bottom: 10px;
     border: none;
-    color: hsl(0, 0%, 0%);
+    color: var(--white-color);
     background-color: hsla(0, 0%, 0%, 0);
     text-transform: capitalize;
     border-top-right-radius: 20px;
@@ -518,7 +518,7 @@ nav li:hover{
     content: "";
     width: 5px;
     height: 10px;
-    background-color: hsl(240, 69%, 43%);
+    background-color: var(--blue-buttonsAndInputs);
     left: 0;
     height: 30px;
     top: 0;
@@ -526,17 +526,6 @@ nav li:hover{
     border-bottom-right-radius: 10px;
     transition: .3s;
 }
-
-.aside-Content-button:hover::before{
-    background-color: hsla(0, 0%, 35%, 0.186);
-    width: 100%;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-
-}
-
-
-
 .BackgroudType-Pokemon{
     width: 100%;
     height: 50px;
@@ -610,18 +599,43 @@ nav li:hover{
     padding: 20px;
 }
 
+.pokedex-container-Card{
+    display: grid;
+    grid-template-areas:
+    "Image"
+    "Info";
+    grid-template: 
+    "Image Info" auto /
+    min-content auto;
+}
+
 .pokedex-backgroundType{
+    grid-area: Image;
     width: 200px;
     height: 300px;
     border-radius: 15px;
     display: flex;
 }
 
+
 .pokedex-PokeImage{
     margin: auto;
-    width: 220px;
+    width: 170px;
+    transition: .3s;
 }
 
+.pokedex-backgroundType:hover .pokedex-PokeImage{
+    transform: scale(1.4);
+}
+
+.pokedex-PokeInfo{
+    grid-area: Info;
+    margin-left: 20px;
+}
+.pokedex-pokemon-name{
+    text-transform: capitalize;
+    font-size: 2em;
+}
 /* Page Pokedex.php */
 
 @media(min-width: 768px) {
