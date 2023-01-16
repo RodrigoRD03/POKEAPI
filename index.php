@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./Style.css">
+    <link rel="stylesheet" href="./Styles.css">
     <link rel="icon" href="./images/logo.ico">
     <script src="https://kit.fontawesome.com/4b5992b75f.js" crossorigin="anonymous"></script>
     <title>Home</title>
@@ -78,7 +78,7 @@ use function PHPSTORM_META\type;
         </div>
         <div class="form-SendPokemon">
             <form action="./Pokedex.php" method="post">
-                <input class="input-Pokemon" required type="text" name="findPokemon" placeholder="Search A Pokemon">
+                <input class="input-Pokemon" required type="text" name="findPokemon" placeholder="Search">
                 <button class="button-FindPokemon" type="submit"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
             </form>
         </div>
@@ -172,9 +172,13 @@ use function PHPSTORM_META\type;
                     echo "<input type='text' class='hidenInput' name='types' value={$TypeC[$i]}'>
                         <button class='aside-Content-button' type='submit' id='bac-{$i}'><h4>{$TypeC[$i]}</h4></button>
                         <style>
+                            #bac-{$i}{
+                                transition: .3s;
+                            }    
                             #bac-{$i}:hover{
                                 background: linear-gradient(45deg, {$TypeC1[$i]} 0%, {$TypeC2[$i]} 100%);
                                 color: hsl(0, 0%, 0%);
+                                transition: .5s;
                             }
                         </style>";
 

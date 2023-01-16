@@ -481,6 +481,9 @@ nav li:hover{
     margin-bottom: 10px;
     margin-left: 10px;
 }
+.aside-Content h2{
+    color: var(--white-color);
+}
 .aside-Content hr{
     width: 90%;
     height: 0;
@@ -595,32 +598,31 @@ nav li:hover{
     background-color: var(--card-color);
     background-size: cover;
     margin-top: 94px;
-    width: 80%;
+    width: 65%;
     padding: 20px;
 }
 
 .pokedex-container-Card{
     display: grid;
-    grid-template-areas:
-    "Image"
-    "Info";
     grid-template: 
+    "Image Name" 45px
     "Image Info" auto /
     min-content auto;
+    gap: 20px;
 }
 
 .pokedex-backgroundType{
     grid-area: Image;
-    width: 200px;
-    height: 300px;
+    width: 300px;
+    height: 400px;
     border-radius: 15px;
+    background-clip: border-box;
     display: flex;
 }
 
-
 .pokedex-PokeImage{
     margin: auto;
-    width: 170px;
+    width: 240px;
     transition: .3s;
 }
 
@@ -628,14 +630,145 @@ nav li:hover{
     transform: scale(1.4);
 }
 
-.pokedex-PokeInfo{
-    grid-area: Info;
-    margin-left: 20px;
+.pokedex-TittleName{
+    background-color: var(--card-difuminate-color);
+    border-radius: 50rem;
+    height: 50px;
 }
+
 .pokedex-pokemon-name{
+    grid-area: Name;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-transform: capitalize;
-    font-size: 2em;
+    text-align: center;
+    font-size: 2.4em;
+    background: linear-gradient(90deg, #1ED7B5ff, #41DDB3ff, #64E2B0ff, #87E8AEff, #AAEEACff, #CDF3A9ff, #F0F9A7ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-position: center;
+    animation: anim 2.5s infinite ease-in-out;
+    background-size: 300% 300%;
 }
+
+.pokedex-Info{
+    grid-area: Info;
+    background: linear-gradient(90deg, hsla(351, 100%, 99%, 1) 0%, hsla(53, 90%, 89%, 1) 100%);
+    background-size: 400% 400%;
+    animation: anim 2.5s infinite ease-in-out;
+    display: grid;
+    grid-template: 
+    "Tittle Tittle" min-content
+    "Id Id" min-content
+    "Height Weight"
+    "Category  Abilities";
+    padding: 10px;
+    gap: 10px;
+    border-radius: 10px;
+}
+.pokedex_Tittleinfo{
+    grid-area: Tittle;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.pokedex_IdInfo{
+    grid-area: Id;
+    text-align: center;
+    color: var(--card-difuminate-color);
+    font-size: 1.3em;
+}
+
+.Info_AbilityBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+}
+
+.pokedex_HeigtInfo,.pokedex_WeightInfo, .pokedex_CategoryInfo, .pokedex_AbilitiesInfo  {
+    text-align: center;
+}
+
+
+.pokedex_HeigtInfo h4{
+    font-size: 1.3em;
+}
+.pokedex_WeightInfo h4{
+    font-size: 1.3em;
+}
+.pokedex_CategoryInfo h4{
+    font-size: 1.3em;
+}
+.pokedex_AbilitiesInfo h4{
+    font-size: 1.3em;
+}
+.pokedex_HeigtInfo h5{
+    padding-top: 6px;
+    font-size: 1.1em;
+    color: var(--card-difuminate-color);
+}
+.pokedex_WeightInfo h5{
+    padding-top: 6px;
+    font-size: 1.1em;
+    color: var(--card-difuminate-color);
+}
+.pokedex_CategoryInfo h5{
+    padding-top: 6px;
+    font-size: 1.1em;
+    color: var(--card-difuminate-color);
+}
+.pokedex_AbilitiesInfo h5{
+    padding-top: 6px;
+    font-size: 1.1em;
+    color: var(--card-difuminate-color);
+    text-transform: capitalize;
+}
+
+
+.Info-Ability{
+    height: 15px;
+    width: 15px;
+    margin-top: 5px;
+    border-radius: 7.5px;
+    background-color: var(--card-difuminate-color);
+    color: var(--white-color);
+    font-size: .7em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.Info-Ability:hover::before{
+    display: initial;
+}
+
+.Info-Ability::before{
+    content: attr(data-count);
+    position: absolute;
+    color: var(--white-color);
+    width: 150px;
+    margin-left: 190px;
+    display: none;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: hsla(180, 1%, 34%, 0.459);
+}
+
+.interrogation{
+    margin-top: 3px;
+}
+
+.pokedex-TypeWeakness{
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+}
+
 /* Page Pokedex.php */
 
 @media(min-width: 768px) {
@@ -732,5 +865,17 @@ nav li:hover{
     }
     .pokedex-Section-NoSearch{
         width: 60%;
+    }
+}
+
+@keyframes anim {
+    0% {
+        background-position: 0.50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0 50%;
     }
 }
