@@ -369,6 +369,7 @@ nav li:hover{
     border-radius: 10px;
     text-align: center;
     text-transform: capitalize;
+    transition: .3s;
 }
 
 .poke-Abilities{
@@ -664,7 +665,8 @@ nav li:hover{
     "Tittle Tittle" min-content
     "Id Id" min-content
     "Height Weight"
-    "Category  Abilities";
+    "Category  Abilities"
+    "Habitat Habitat";
     padding: 10px;
     gap: 10px;
     border-radius: 10px;
@@ -689,10 +691,29 @@ nav li:hover{
     gap: 7px;
 }
 
-.pokedex_HeigtInfo,.pokedex_WeightInfo, .pokedex_CategoryInfo, .pokedex_AbilitiesInfo  {
+.pokedex_HeigtInfo,.pokedex_WeightInfo, .pokedex_CategoryInfo, .pokedex_AbilitiesInfo, .pokedex_HabitatInfo {
     text-align: center;
 }
 
+.pokedex_HeigtInfo{
+    grid-area: Height;
+}
+
+.pokedex_WeightInfo{
+    grid-area: Weight;
+}
+
+.pokedex_CategoryInfo{
+    grid-area: Category;
+}
+
+.pokedex_AbilitiesInfo{
+    grid-area: Abilities;
+}
+
+.pokedex_HabitatInfo{
+    grid-area: Habitat;
+}
 
 .pokedex_HeigtInfo h4{
     font-size: 1.3em;
@@ -704,6 +725,10 @@ nav li:hover{
     font-size: 1.3em;
 }
 .pokedex_AbilitiesInfo h4{
+    font-size: 1.3em;
+}
+
+.pokedex_HabitatInfo h4{
     font-size: 1.3em;
 }
 .pokedex_HeigtInfo h5{
@@ -722,6 +747,12 @@ nav li:hover{
     color: var(--card-difuminate-color);
 }
 .pokedex_AbilitiesInfo h5{
+    padding-top: 6px;
+    font-size: 1.1em;
+    color: var(--card-difuminate-color);
+    text-transform: capitalize;
+}
+.pokedex_HabitatInfo h5{
     padding-top: 6px;
     font-size: 1.1em;
     color: var(--card-difuminate-color);
@@ -763,10 +794,29 @@ nav li:hover{
     margin-top: 3px;
 }
 
-.pokedex-TypeWeakness{
-    width: 100px;
-    height: 100px;
-    background-color: aqua;
+.pokedex-Types{
+    padding: 10px;
+    width: auto; 
+    background-color: var(--card-difuminate-color);
+    border-radius: 10px;
+    display: grid;
+    gap: 10px;
+}
+
+
+.pokedex-Types h2{
+    background: linear-gradient(90deg, rgb(215, 58, 30), rgb(221, 140, 65), rgb(226, 218, 100), rgb(232, 230, 135), rgb(170, 238, 210), rgb(243, 169, 233), rgb(249, 167, 231));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-position: center;
+    animation: anim 2.5s infinite ease-in-out;
+    background-size: 300% 300%;
+}
+
+.hover-type:hover{
+    transition: .3s;
+    transform: scale(1.05);
 }
 
 /* Page Pokedex.php */
@@ -848,6 +898,7 @@ nav li:hover{
     .background-type{
         height: 30px;
         padding: 5px;
+        transition: .3s;
     }
     .poke-Abilities{
         height: max-content;

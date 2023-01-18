@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php 
+    <?php
+
+use function PHPSTORM_META\type;
+
     if(isset($_POST['findPokemon']) == false){
         $numeber_Random = random_int(1, 100);
         $name = "$numeber_Random";
@@ -37,27 +40,6 @@
             echo "<div class='pokedex-backgroundType' style='background: linear-gradient(45deg, $colorOne 0%, $colorTwo 100%); background-size: 400% 400%;
             animation: anim 2.5s infinite ease-in-out;'>";
         }
-
-        function weakness(){
-            $normal = ["fighting"];
-            $fire = ["water", "ground", "rock"];
-            $water = ["grass", "electric"];
-            $grass = ["fire", "ice", "poison", "flying", "bug"];
-            $electric = ["ground"];
-            $ice = ["fire", "fighting", "rock", "steel"];
-            $fighting = ["flying", "psychic", "fairy"];
-            $poison = ["ground", "psychic"];
-            $ground = ["water", "grass", "ice"];
-            $flying = ["electric", "ice", "rock"];
-            $psychic = ["bug", "ghost", "dark"];
-            $bug = ["flying", "rock", "fire"];
-            $rock = ["water", "grass", "fighting", "ground", "steel"];
-            $ghost = ["ghost", "dark"];
-            $dragon = ["ice", "dragon", "fairy"];
-            $dark = ["fighting", "bug", "fairy"];
-            $steel = ["fire", "fighting", "ground"];
-            $fairy = ["poison", "steel"];
-        }
         ?>
 <body class="pokedex-GridContainer">
     <nav class="navbar-Container">
@@ -68,7 +50,7 @@
         </div>
         <div class="form-SendPokemon">
             <form action="./Pokedex.php" method="post">
-                <input class="input-Pokemon" required type="text" name="findPokemon" placeholder="Search A Pokemon">
+                <input class="input-Pokemon" required type="text" name="findPokemon" placeholder="Search">
                 <button class="button-FindPokemon" type="submit"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
             </form>
         </div>
@@ -152,15 +134,15 @@
                         // echo "</div>";
                         echo "<div class='pokedex_IdInfo'> <h4>N.° {$pokemon->id} </h4></div>";
                         echo "<div class='pokedex_HeigtInfo'>
-                                <h4> <span><i class='fa-solid fa-up-down'></i></span> Height </h4> 
+                                <h4> <span><i class='fa-solid fa-up-down fa-beat'></i></span> Height </h4> 
                                 <h5>".floatval(($pokemon->height)/10) ." m</h5>
                         </div>";
                         echo "<div class='pokedex_WeightInfo'>
-                                <h4> <span><i class='fa-solid fa-dumbbell'></i></span> Weight </h4> 
+                                <h4> <span><i class='fa-solid fa-dumbbell fa-beat'></i></span> Weight </h4> 
                                 <h5>". floatval(($pokemon->weight)/10) . " Kg</h5>
                         </div>";
                         echo "<div class='pokedex_CategoryInfo'>
-                                <h4> <span><i class='fa-solid fa-paperclip'></i></span> Category </h4> 
+                                <h4> <span><i class='fa-solid fa-paperclip fa-beat'></i></span> Category </h4> 
                                 <h5>";
                                 $category = $pokeCategory->genera[7]->genus;
                                 $category = str_replace("Pokémon", "", $category);
@@ -168,7 +150,7 @@
                                 echo "</h5>
                         </div>";
                         echo "<div class='pokedex_AbilitiesInfo'>
-                                <h4> <span><i class='fa-solid fa-star'></i></span> Abilities </h4> ";
+                                <h4> <span><i class='fa-solid fa-star fa-beat'></i></span> Abilities </h4> ";
                                 $ability = $pokemon->abilities;
                                 foreach($ability as $abilities){
                                     echo "<div class='Info_AbilityBox'>
@@ -193,10 +175,34 @@
                                     </div>";
                                 }
                         echo "</div>";
+                        echo "<di class='pokedex_HabitatInfo'>
+                                <h4> <span> <i class='fa-solid fa-globe fa-beat'></i> </span> Habitat</h4>
+                                <h5>".$pokeCategory->habitat->name."</h5>
+                        </div>";
                     echo "</div>";
-                    echo "<div class='pokedex-TypeWeakness'>
-                            
-                    </div>";
+                    echo "<div class='pokedex-Types'>";
+                    $weak = [];
+                    $types = $pokemon->types;
+                    $TypeC = ["normal", "fighting", "flying", "poison", "ground", "rock", "bug", "ghost", "steel", "fire", "water", "grass", "electric", "psychic", "ice", "dragon","dark", "fairy"];
+                    $TypeC1 = ["hsla(228, 21%, 72%, 1)", "hsla(347, 93%, 56%, 1)", "hsla(178, 40%, 84%, 1)", "hsla(293, 63%, 77%, 1)", "hsla(26, 84%, 75%, 1)", "hsla(45, 38%, 74%, 1)", "hsla(76, 79%, 63%, 1)", "hsla(245, 71%, 63%, 1)", "hsla(0, 0%, 100%, 1)", "hsla(44, 74%, 55%, 1)", "hsla(185, 51%, 55%, 1)", "hsla(59, 86%, 68%, 1)", "hsla(0, 0%, 99%, 1)", "hsla(16, 80%, 71%, 1)", "hsla(169, 32%, 70%, 1) ", "hsla(216, 49%, 62%, 1)", "hsla(214, 4%, 64%, 1)", "hsla(306, 100%, 90%, 1)", "hsla(19, 100%, 58%, 1)"];
+                    $TypeC2 = ["hsla(229, 21%, 37%, 1)", "hsla(317, 20%, 37%, 1)", "hsla(192, 50%, 71%, 1)", "hsla(290, 47%, 50%, 1)", "hsla(23, 74%, 52%, 1)", "hsla(22, 16%, 57%, 1)", "hsla(91, 60%, 41%, 1)", "hsla(266, 64%, 39%, 1)", "hsla(0, 0%, 41%, 1)", "hsla(0, 100%, 58%, 1) ", "hsla(174, 38%, 31%, 1)", "hsla(134, 36%, 53%, 1)", "hsla(44, 100%, 50%, 1)", "hsla(3, 79%, 56%, 1)", "hsla(165, 51%, 48%, 1)", "hsla(222, 70%, 38%, 1)", "hsla(220, 3%, 21%, 1)", "hsla(295, 85%, 63%, 1)", "hsla(0, 0%, 25%, 1)"];
+                    ?>
+                    <h2> Types </h2>
+                    <?php
+                    foreach($types as $type){
+                        for($i = 0; $i < 18; $i++){
+                            if($type->type->name == $TypeC[$i]){
+                                $space = $i;
+                                $colorOne = $TypeC1[$space];
+                                $colorTwo = $TypeC2[$space];
+                            }
+                        }
+                        echo "<div class='background-type hover-type' style='background: linear-gradient(45deg, $colorOne 0%, $colorTwo 100%)'>";
+                        echo "<h4 class='type'>".$type->type->name."</h4>";
+                        echo "</div>";
+                        array_push($weak, $type->type->name);
+                    }
+                    echo "</div>";
             echo "</section>";
         }
     ?>
