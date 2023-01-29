@@ -77,7 +77,6 @@ body{
     background-color: var(--card-color);
     border: 1px solid var(--card-difuminate-color);
     color: hsl(0, 0%, 100%);
-    text-transform: capitalize;
     transition: .3s;
 }
 
@@ -543,10 +542,13 @@ nav li:hover{
     display: grid;
     grid-template-areas: 
     "Navbar"
-    "Content";
+    "Content"
+    "Evolutions";
     grid-template: 
     "Nabvar"
-    "Content";
+    "Content"
+    "Evolutions";
+    gap: 30px;
 }
 
 .pokedex-Section-NoSearch{
@@ -597,17 +599,21 @@ nav li:hover{
     margin: auto;
     border-radius: 20px;
     background-color: var(--card-color);
+    min-width: 851.5px;
+    max-width: 851.5px;
     background-size: cover;
-    margin-top: 94px;
+    margin-top: 64px;
     width: 65%;
     padding: 20px;
 }
 
 .pokedex-container-Card{
+    max-width: 850.5px;
     display: grid;
     grid-template: 
     "Image Name" 45px
-    "Image Info" auto /
+    "Image Info" auto
+    "TyWe  States" auto /
     min-content auto;
     gap: 20px;
 }
@@ -628,7 +634,7 @@ nav li:hover{
 }
 
 .pokedex-backgroundType:hover .pokedex-PokeImage{
-    transform: scale(1.4);
+    transform: scale(1.7);
 }
 
 .pokedex-TittleName{
@@ -787,14 +793,16 @@ nav li:hover{
     display: none;
     padding: 10px;
     border-radius: 8px;
-    background-color: hsla(180, 1%, 34%, 0.459);
+    background-color: hsla(180, 1%, 34%, 0.719);
+    transition: .3s;
 }
 
 .interrogation{
-    margin-top: 3px;
+    margin-top: 2px;
 }
 
 .pokedex-Types{
+    grid-area: TyWe;
     padding: 10px;
     width: auto; 
     background-color: var(--card-difuminate-color);
@@ -819,6 +827,123 @@ nav li:hover{
     transform: scale(1.05);
 }
 
+.pokedex-Type_Section, .pokedex-Weakness_Section{
+    display: grid;
+    grid-template-columns: repeat(2, 135px);
+    gap: 10px;
+}
+
+.pokedex-Type-Tittle, .pokedex-Weakness_Tittle{
+    grid-column: 1/3;
+}
+
+.pokedex-States{
+    grid-area: States;
+    background-color: var(--card-difuminate-color);
+    border-radius: 10px;
+    display: grid;
+    gap: 10px;
+    padding: 10px;
+}
+
+.pokedex-states_tittle{
+    text-align: center;
+    font-size: 1.6em;
+}
+
+.pokedex_Stats{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 20px;
+}
+
+.stats_Info{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.stateName{
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.progressAndNumbers{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    color: var(--yellow--navbar);
+}
+
+.stateProgress{
+    width: 200px;
+    height: 20px;
+    background-color: rgb(248, 248, 248);
+    border-radius: 5px;
+}
+
+.stateProgress::-webkit-progress-bar{
+    background-color: var(--white-color);
+    border-radius: 5px;
+}
+.stateProgress::-webkit-progress-value{
+    background-color: var(--yellow--navbar);
+    border-radius: 5px;
+}
+
+/* Evolutions Area */
+
+.pokedex-PokeEvolutions{
+    grid-area: Evolutions;
+    display: grid;
+    gap: 20px;
+    margin: auto;
+    border-radius: 20px;
+    background-color: var(--card-color);
+    min-width: 851.5px;
+    max-width: 851.5px;
+    color: wheat;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.evolution-tittle{
+    color: var(--yellow--navbar);
+}
+
+.section-ImagesEvolutions{
+    display: flex;
+    display: grid;
+    width: 100%;
+    grid-template-columns:  repeat(auto-fit, 150px);
+    row-gap: 100px;
+    column-gap: 0;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.circle-evolution{
+    background-color: var(--card-difuminate-color);
+    margin: auto;
+    padding: 20px;
+    border-radius: 200px;
+    cursor: pointer;
+    border: 5px solid var(--white-color);
+    transition: .3s;
+}
+.circle-evolution:hover{
+    box-shadow: 0 7px 10px var(--blue-buttonsAndInputs);
+}
+
+.pokedex-EvolutionImage{
+    width: 100px;
+    height: 100px;
+    transition: .3s;
+}
+
+.circle-evolution:hover .pokedex-EvolutionImage{
+    transform: scale(1.4);
+}
 /* Page Pokedex.php */
 
 @media(min-width: 768px) {
