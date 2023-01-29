@@ -546,8 +546,8 @@ nav li:hover{
     "Evolutions";
     grid-template: 
     "Nabvar"
-    "Content"
-    "Evolutions";
+    "Content" 
+    "Evolutions" ;
     gap: 30px;
 }
 
@@ -599,8 +599,8 @@ nav li:hover{
     margin: auto;
     border-radius: 20px;
     background-color: var(--card-color);
-    min-width: 851.5px;
-    max-width: 851.5px;
+    min-width: 861.5px;
+    max-width: 861.5px;
     background-size: cover;
     margin-top: 64px;
     width: 65%;
@@ -900,8 +900,8 @@ nav li:hover{
     margin: auto;
     border-radius: 20px;
     background-color: var(--card-color);
-    min-width: 851.5px;
-    max-width: 851.5px;
+    min-width: 856.5px;
+    max-width: 856.5px;
     color: wheat;
     padding: 20px;
     margin-bottom: 30px;
@@ -909,6 +909,10 @@ nav li:hover{
 
 .evolution-tittle{
     color: var(--yellow--navbar);
+    text-align: center;
+    padding: 10px;
+    background-color: var(--card-difuminate-color);
+    border-radius: 50px;
 }
 
 .section-ImagesEvolutions{
@@ -943,6 +947,14 @@ nav li:hover{
 
 .circle-evolution:hover .pokedex-EvolutionImage{
     transform: scale(1.4);
+}
+
+.varieties-tittle{
+    color: var(--pink--navbar);
+    text-align: center;
+    padding: 10px;
+    background-color: var(--card-difuminate-color);
+    border-radius: 50px;
 }
 /* Page Pokedex.php */
 

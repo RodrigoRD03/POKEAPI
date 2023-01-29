@@ -4,7 +4,7 @@
     <?php
 
     if(isset($_POST['findPokemon']) == false){
-        $number_Random = random_int(1, 100);
+        $number_Random = random_int(1, 800);
         $name = "$number_Random";
         $tittle = "$number_Random";
     } else {
@@ -261,7 +261,7 @@
             ?>
             <section class="pokedex-PokeEvolutions">
                 <?php
-                    echo "<div class='evolution-tittle'>
+                echo "<div class='evolution-tittle'>
                         <h1>Evolutions <i class='fa-solid fa-dna'></i></h1>
                     </div>
                     <div class='section-ImagesEvolutions'>";
@@ -320,6 +320,20 @@
                         }
                     }
                 echo "</div>";
+                echo "<div class='varieties-tittle'>
+                        <h1>Varieties <i class='fa-solid fa-gears'></i></h1>
+                    </div>";
+                echo "<div class='section-ImagesEvolutions'>";
+                    $varietiesList = $pokeCategory->varieties; 
+                    foreach($varietiesList as $varieties){
+                        
+                        echo "<form action='./Pokedex.php' method='post'>";
+                            echo "<button class='circle-evolution'>";
+                                PrintImagesEvolutions($varieties->pokemon->name);
+                            echo "</button>";
+                        echo "</form>";
+                    }
+
                 ?>
             </section>
             <?php
